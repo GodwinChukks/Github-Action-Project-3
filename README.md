@@ -108,7 +108,36 @@ creating `index.js` file and code
 
 18
 
+## Job was successfully build and tested using Github Action
 
+19
+
+
+# Impleting Matrix Build to Test Accross Environment and Versions Simulteneously.
+
+### A matrix build lets you define multiple variables (like Node.js versions, operating systems, or environments) and automatically create combinations of them that GitHub Actions will run in parallel.
+
+## Test Across Environment and Versions Simultaneously" Means…
+
+## You can run your tests on:
+
+- Multiple Node versions (e.g. 14, 16, 18)
+
+- Multiple environments (development, staging, production)
+
+- GitHub will spin up jobs like:
+
+- Node 14 + development
+
+- Node 14 + staging
+
+- Node 16 + production
+
+- Node 18 + development ...all at the same time.
+
+### GitHub generates parallel jobs for each combo—so you test how your app behaves under every version/env pairing.
+
+### We also implement in our pipeline dependency caching to speed up future runs, and artifact uploads to preserve results like test reports, logs, or coverage summaries. These additions will make your workflow more efficient and traceable
 
 
 

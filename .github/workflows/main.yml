@@ -6,16 +6,43 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+        environment: [development, staging]
+        include:
+          - node-version: 20
+            environment: production
+
     steps:
-      - uses: actions/checkout@v3 # This checkout the repo
-      
+      - uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # specify the Node.js version
-      
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Print current environment
+        run: echo "Running in ${{ matrix.environment }} environment"
+
       - name: Install dependencies
         run: npm install
-      
-      - name: Run tests
-        run: npm test
+
+      - name: Run tests and save output
+        run: |
+          mkdir -p test-output
+          npm test | tee test-output/results-${{ matrix.node-version }}-${{ matrix.environment }}.txt
+
+      - name: Upload test result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-result-${{ matrix.node-version }}-${{ matrix.environment }}
+          path: test-output/results-${{ matrix.node-version }}-${{ matrix.environment }}.txt
