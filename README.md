@@ -139,6 +139,118 @@ creating `index.js` file and code
 
 ### We also implement in our pipeline dependency caching to speed up future runs, and artifact uploads to preserve results like test reports, logs, or coverage summaries. These additions will make your workflow more efficient and traceable
 
+### update package.json script
+
+```
+{
+  "name": "github-action-project-3",
+  "version": "1.0.0",
+  "description": "### Github Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GodwinChukks/Github-Action-Project-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GodwinChukks/Github-Action-Project-3/issues"
+  },
+  "homepage": "https://github.com/GodwinChukks/Github-Action-Project-3#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4",
+    "supertest": "^7.1.3"
+  }
+}
+
+```
+
+### Pushing workflow after implementing matrix strategy, dependencies caching and artifact upload
+
+20
+
+## Successful pipeline run
+
+21
+
+22
+
+23
+
+
+## Integrating ESLint for linting and static analysis
+
+### updated package.json script
+
+```
+{
+  "name": "github-action-project-3",
+  "version": "1.0.0",
+  "description": "NodeJS CI pipeline with GitHub Actions matrix build, linting, and code analysis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GodwinChukks/Github-Action-Project-3.git"
+  },
+  "keywords": [],
+  "author": "Godwin Chukks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GodwinChukks/Github-Action-Project-3/issues"
+  },
+  "homepage": "https://github.com/GodwinChukks/Github-Action-Project-3#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4",
+    "supertest": "^7.1.3",
+    "eslint": "^8.50.0"
+  }
+}
+
+```
+
+## 1. Next Steps we Activate ESLint 
+
+### Run `npm install eslint --save-dev`
+
+24
+
+## 2. Initialize Config (interactive setup):
+
+### Run `npx eslint --init`
+
+## Choose:
+
+- Format: JSON
+
+- Environment: Node and CommonJS
+
+- Style guide: Recommended or customize
+
+### Configuring npx eslint
+
+25
+26
+27
+28
+
+
+
 
 
 
