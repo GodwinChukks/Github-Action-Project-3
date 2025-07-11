@@ -253,6 +253,23 @@ creating `index.js` file and code
 
 29
 
+### Successfull build and analyze using ESlint
+
+30
+
+31
+
+## Deploying our Project to Heroku
+
+### creating bucket ready for depolyment
+
+32
+
+### creating secrets for aws deployment
+
+33
+
+
 
 
 

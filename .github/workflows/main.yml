@@ -27,7 +27,6 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}-eslintfix
-
           restore-keys: |
             ${{ runner.os }}-node-
 
@@ -47,3 +46,30 @@ jobs:
         with:
           name: test-result-${{ matrix.node-version }}-${{ matrix.environment }}
           path: test-output/results-${{ matrix.node-version }}-${{ matrix.environment }}.txt
+
+  deploy-aws:
+    needs: build-and-analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install AWS CLI
+        run: sudo apt-get install awscli -y
+
+      - name: Deploy to AWS S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_DEPLOY_BUCKET: ${{ secrets.AWS_DEPLOY_BUCKET }}
+        run: |
+          echo "Configuring AWS credentials..."
+          aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+          aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+          aws configure set default.region "$AWS_REGION"
+
+          echo "Deploying files to S3 bucket: $AWS_DEPLOY_BUCKET"
+          aws s3 sync ./public s3://$AWS_DEPLOY_BUCKET --delete
+
+          echo "✅ AWS deployment completed"
