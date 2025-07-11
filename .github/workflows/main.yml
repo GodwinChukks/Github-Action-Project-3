@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}-eslintfix
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}-v2
           restore-keys: |
             ${{ runner.os }}-node-
 
@@ -58,7 +58,19 @@ jobs:
         run: aws --version
 
       - name: Make deployment script executable
-        run: chmod +x deploy.aws.sh
+        run: chmod +x deploy-aws.sh
+
+      - name: Debug environment values and script path
+        run: |
+          echo "✅ AWS Region: $AWS_REGION"
+          echo "✅ S3 Bucket: $AWS_DEPLOY_BUCKET"
+          echo "✅ Script file location:"
+          ls -la ./deploy-aws.sh
+          echo "✅ Public folder contents:"
+          ls -la ./public
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_DEPLOY_BUCKET: ${{ secrets.AWS_DEPLOY_BUCKET }}
 
       - name: Run AWS deploy script
         env:
