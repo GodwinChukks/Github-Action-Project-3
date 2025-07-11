@@ -1,11 +1,10 @@
 import js from "@eslint/js";
 import globals from "globals";
-import { defineConfig } from "eslint/config";
+import { defineConfig } from "@eslint/js"; // ✅ Use this source instead
 
 export default defineConfig([
   {
     files: ["**/*.{js,cjs,mjs}"],
-    plugins: { js },
     languageOptions: {
       sourceType: "commonjs",
       ecmaVersion: "latest",
@@ -14,11 +13,15 @@ export default defineConfig([
         ...globals.jest
       }
     },
-    extends: ["js/recommended"],
+    plugins: {
+      js
+    },
     rules: {
       "no-unused-vars": "warn",
       "semi": ["error", "always"],
       "quotes": ["error", "single"]
-    }
+    },
+    // Optional style guide
+    extends: ["eslint:recommended"]
   }
 ]);
