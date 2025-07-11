@@ -2,23 +2,23 @@
 
 ### Github Dashboard
 
-1
+![image](screenshot/1.PNG)
 
 ### Clonning repository into the project folder
 
-2
+![image](screenshot/2.PNG)
 
 ## Step 1:
 
 ### Running `npm init` to generate the `package.json file`
 
-3
+![image](screenshot/3.PNG)
 
 ## Step 2:
 
 ### Downloading and installing express locally. The command `npm install express` tell Node package manager(npm) tp download and install express locally. 
 
-4
+![image](screenshot/4.PNG)
 
 ### `Express` is is a fast, minimalist web framework for Node.js..
 
@@ -42,7 +42,7 @@
 
 ### installing jest supertest
 
-5
+![image](screenshot/5.PNG)
 
 The flag `save-dev` meaning they’re only needed during development—not in production.
 
@@ -50,67 +50,67 @@ The flag `save-dev` meaning they’re only needed during development—not in pr
 
 ### Create our code base folder for the project
 
-6
+![image](screenshot/6.PNG)
 
 ## Step 6:
 
 creating `index.js` file and code
 
-7
+![image](screenshot/7.PNG)
 
 ## Step 7:
 
 ### creating app.js file and code
 
-8
+![image](screenshot/8.PNG)
 
 ## Step 8:
 
 ### creating app.test.js file and code
 
-9
+![image](screenshot/9.PNG)
 
 ### verifying our code base are successfully created
 
-10
+![image](screenshot/10.PNG)
 
 ## Step 9: Testing index.js 
 
-11
+![image](screenshot/11.PNG)
 
 ## Step 10:
 
 ### updating package.json test script
 
-12
+![image](screenshot/12.PNG)
 
 ### Testing to cofirm app is listening on port 3000
 
-13
+![image](screenshot/13.PNG)
 
 ### Testing our app locally on the web browser
 
-14
+![image](screenshot/14.PNG)
 
 ### Creating gitignore file and passing node_modules file to it
 
-15
+![image](screenshot/15.PNG)
 
 ### Running test on our script
 
-16
+![image](screenshot/16.PNG)
 
 ### Creating our github workflows
 
-17
+![image](screenshot/17.PNG)
 
 ### Push job to Github repository
 
-18
+![image](screenshot/18.PNG)
 
 ## Job was successfully build and tested using Github Action
 
-19
+![image](screenshot/19.PNG)
 
 
 # Impleting Matrix Build to Test Accross Environment and Versions Simulteneously.
@@ -175,15 +175,15 @@ creating `index.js` file and code
 
 ### Pushing workflow after implementing matrix strategy, dependencies caching and artifact upload
 
-20
+![image](screenshot/20.PNG)
 
 ## Successful pipeline run
 
-21
+![image](screenshot/21.PNG)
 
-22
+![image](screenshot/22.PNG)
 
-23
+![image](screenshot/23.PNG)
 
 
 ## Integrating ESLint for linting and static analysis
@@ -228,7 +228,7 @@ creating `index.js` file and code
 
 ### Run `npm install eslint --save-dev`
 
-24
+![image](screenshot/24.PNG)
 
 ## 2. Initialize Config (interactive setup):
 
@@ -244,32 +244,41 @@ creating `index.js` file and code
 
 ### Configuring npx eslint
 
-25
-26
-27
-28
+![image](screenshot/25.PNG)
+![image](screenshot/26.PNG)
+![image](screenshot/27.PNG)
+![image](screenshot/28.PNG)
 
 ### pushing workflow pipeline after update
 
-29
+![image](screenshot/29.PNG)
 
 ### Successfull build and analyze using ESlint
 
-30
+![image](screenshot/30.PNG)
 
-31
+![image](screenshot/31.PNG)
 
 ## Deploying our Project to Heroku
 
 ### creating bucket ready for depolyment
 
-32
+![image](screenshot/32.PNG)
 
 ### creating secrets for aws deployment
 
-33
+![image](screenshot/33.PNG)
 
-#######
+### Successful deploy to aws s3
+
+![image](screenshot/34.PNG)
+
+### confirm aws s3 deployment
+
+![image](screenshot/36.PNG)
+
+### confirming aws s3 deployment
+
 
 
 
